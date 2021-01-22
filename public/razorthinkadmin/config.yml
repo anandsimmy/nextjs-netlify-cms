@@ -1,8 +1,8 @@
 backend:
-#  name: test-repo
-  name: git-gateway
+  name: test-repo
+#  name: git-gateway
   branch: main
-publish_mode: editorial_workflow
+#publish_mode: editorial_workflow
 
 media_folder: public/img
 public_folder: img
@@ -20,14 +20,14 @@ collections:
       # adding a meta object with a path property allows editing the path of entries
       # moving an existing entry will move the entire sub tree of the entry to the new location
     fields:
-      - {  label: "Primecat", name: "primecat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }]}
-      - {  label: "Seccat", name: "seccat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }]}
-      - { label: "Title", name: "title", widget: "string", required: false }
+      - {  label: "Select Category", name: "primecat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }]}
+      - {  label: "Select Secondary Category", name: "seccat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }]}
+      - { label: "Title", name: "title", widget: "string" }
       - { label: "Author", name: "author", widget: "string", required: false }
       - { label: "Publish Date", name: "date", widget: "datetime", required: false }
       - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
-    path: '{{primecat}}/{{seccat}}/{title}'
+    path: '{{primecat}}/{{seccat}}/docs/{{title}}'
 #    meta: { path: { widget: 'string', '{{primecat}}', label: 'Category', index_file: 'index' } }
 
   - name: "pipelines"
