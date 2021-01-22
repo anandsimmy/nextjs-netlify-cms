@@ -17,6 +17,113 @@ i18n:
   structure: multiple_files
   locales: [en, de, fr]
 collections:
+  - name: "pipelines"
+    label: "Pipelines"
+    folder: "contents/pipelines"
+    create: true
+    slug: "{{slug}}"
+    nested:
+      depth: 100
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Select Category", name: "primarycat", widget: "select", options: [ { label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Blocks", value: "blocks" }, { label: "Block Executors", value: "blockexecutors" }, { label: "Project Space", value: "projectspace" }, { label: "APIs", value: "apis" } ], i18n: true }
+      - { label: "Select Secondary Category", name: "seccat", widget: "select", options: [ { label: "Create_a_Pipeline", value: "create_a_piepline" },{ label: "Run_a_Pipeline", value: "run_a_pipeline" },{ label: "Terminating_a_Pipeline", value: "terminating_a_pipeline" }, { label: "Pipeline_Rerun", value: "pipeline_rerun" }, { label: "Publishing_a_Pipeline", value: "publishing_a_pipeline" }, { label: "Pipeline_Metrics", value: "pipeline_metrics" } ], i18n: true }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Labels", name: "labels", widget: "select", multiple: true, options: [ "pipelines", "architecture", "deeplearning", "help", "razorthink" ], i18n: true }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+    path: '{{primarycat}}/{{seccat}}/docs/{{title}}'
+
+  - name: "engines"
+    label: "Engines"
+    folder: "contents/engines"
+    create: true
+    slug: "{{slug}}"
+    nested:
+      depth: 100
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Select Category", name: "primarycat", widget: "select", options: [ { label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Blocks", value: "blocks" }, { label: "APIs", value: "apis" } ], i18n: true }
+      - { label: "Select Secondary Category", name: "seccat", widget: "select", options: [ { label: "Create_a_Pipeline", value: "create_a_piepline" },{ label: "Run_a_Pipeline", value: "run_a_pipeline" },{ label: "Terminating_a_Pipeline", value: "terminating_a_pipeline" }, { label: "Pipeline_Metrics", value: "pipeline_metrics" } ], i18n: true }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Labels", name: "labels", widget: "select", multiple: true, options: [ "pipelines", "architecture", "deeplearning", "help", "razorthink" ], i18n: true }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+    path: '{{primarycat}}/{{seccat}}/docs/{{title}}'
+
+  - name: "datamodels"
+    label: "Data Models"
+    folder: "contents/datamodels"
+    create: true
+    slug: "{{slug}}"
+    nested:
+      depth: 100
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Select Category", name: "primarycat", widget: "select", options: [ { label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Blocks", value: "blocks" }, { label: "APIs", value: "apis" } ], i18n: true }
+      - { label: "Select Secondary Category", name: "seccat", widget: "select", options: [ { label: "Create_a_Pipeline", value: "create_a_piepline" },{ label: "Run_a_Pipeline", value: "run_a_pipeline" },{ label: "Terminating_a_Pipeline", value: "terminating_a_pipeline" }, { label: "Pipeline_Metrics", value: "pipeline_metrics" } ], i18n: true }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Labels", name: "labels", widget: "select", multiple: true, options: [ "pipelines", "architecture", "deeplearning", "help", "razorthink" ], i18n: true }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+    path: '{{primarycat}}/{{seccat}}/docs/{{title}}'
+
+
+  - name: "hardwaremetrics"
+    label: "Hardware Metrics"
+    folder: "contents/hardwaremetrics"
+    create: true
+    slug: "{{slug}}"
+    nested:
+      depth: 100
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Select Category", name: "primarycat", widget: "select", options: [ { label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Blocks", value: "blocks" }, { label: "APIs", value: "apis" } ], i18n: true }
+      - { label: "Select Secondary Category", name: "seccat", widget: "select", options: [ { label: "Create_a_Pipeline", value: "create_a_piepline" },{ label: "Run_a_Pipeline", value: "run_a_pipeline" },{ label: "Terminating_a_Pipeline", value: "terminating_a_pipeline" }, { label: "Pipeline_Metrics", value: "pipeline_metrics" } ], i18n: true }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Labels", name: "labels", widget: "select", multiple: true, options: [ "pipelines", "architecture", "deeplearning", "help", "razorthink" ], i18n: true }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+    path: '{{primarycat}}/{{seccat}}/docs/{{title}}'
+
+
+  - name: "projectsetup"
+    label: "Project Setup"
+    folder: "contents/projectsetup"
+    create: true
+    slug: "{{slug}}"
+    nested:
+      depth: 100
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Select Category", name: "primarycat", widget: "select", options: [ { label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Blocks", value: "blocks" }, { label: "APIs", value: "apis" } ], i18n: true }
+      - { label: "Select Secondary Category", name: "seccat", widget: "select", options: [ { label: "Create_a_Pipeline", value: "create_a_piepline" },{ label: "Run_a_Pipeline", value: "run_a_pipeline" },{ label: "Terminating_a_Pipeline", value: "terminating_a_pipeline" }, { label: "Pipeline_Metrics", value: "pipeline_metrics" } ], i18n: true }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Labels", name: "labels", widget: "select", multiple: true, options: [ "pipelines", "architecture", "deeplearning", "help", "razorthink" ], i18n: true }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+    path: '{{primarycat}}/{{seccat}}/docs/{{title}}'
+
+  - name: "troubleshoot"
+    label: "Troubleshoot"
+    folder: "contents/troubleshoot"
+    create: true
+    slug: "{{slug}}"
+    nested:
+      depth: 100
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+
   - name: "general" # Used in routes, e.g., /admin/collections/blog
     label: "General" # Used in the UI
     folder: "contents/general" # The path to the folder where the documents are stored
@@ -26,42 +133,24 @@ collections:
     nested:
       depth: 100
     fields:
-      - {  label: "Select Category", name: "primecat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }], i18n: true}
-      - {  label: "Select Secondary Category", name: "seccat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }], i18n: true}
       - { label: "Title", name: "title", widget: "string", i18n: true }
-      - { label: "Author", name: "author", widget: "string", required: false, i18n: true }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Select Category", name: "primarycat", widget: "select", options: [ { label: "Company", value: "company" },{ label: "People", value: "people" },{ label: "Customers", value: "customers" } ], i18n: true }
+      - { label: "Select Secondary Category", name: "seccat", widget: "select", options: [ { label: "Mission", value: "mission" },{ label: "Work", value: "work" },{ label: "Executives", value: "executives" } ], i18n: true }
       - { label: "Publish Date", name: "date", widget: "datetime", required: false, i18n: duplicate }
       - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false, i18n: true }
-    path: '{{primecat}}/{{seccat}}/docs/{{title}}'
-
-  - name: "pipelines"
-    label: "Pipelines"
-    folder: "contents/pipelines"
-    create: true
-    slug: "{{slug}}"
-    nested:
-      depth: 100
-      summary: '{{title}}'
-    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+    path: '{{primarycat}}/{{seccat}}/docs/{{title}}'
 
   - name: "faq"
     label: "FAQ"
     folder: "contents/faq"
     create: true
     slug: "{{slug}}"
-    nested:
-      depth: 100
-      summary: '{{title}}'
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+
