@@ -3,11 +3,87 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager</title>
+    <title>Razorthink Admin</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 <!-- Include the script that builds the page and powers Netlify CMS -->
 <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+<script>
+    class Hello extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                primary: "a",
+                options: {
+                    a: [{
+                        id: "d",
+                        text: "D"
+                    }, {
+                        id: "e",
+                        text: "E"
+                    }, {
+                        id: "f",
+                        text: "F"
+                    }],
+                    b: [{
+                        id: "g",
+                        text: "G"
+                    }, {
+                        id: "h",
+                        text: "H"
+                    }, {
+                        id: "i",
+                        text: "I"
+                    }],
+                    c: [{
+                        id: "j",
+                        text: "J"
+                    }, {
+                        id: "k",
+                        text: "K"
+                    }, {
+                        id: "l",
+                        text: "L"
+                    }]
+                }
+            };
+        }
+
+        render() {
+            const handleChange = e => {
+                this.setState({ ...this.state,
+                    primary: e.target.value
+                });
+            };
+
+            const {
+                primary,
+                options
+            } = this.state;
+            const lookup = options[primary];
+            return React.createElement(React.Fragment, null, React.createElement("select", {
+                onChange: handleChange
+            }, React.createElement("option", {
+                value: "a"
+            }, "A"), React.createElement("option", {
+                value: "b"
+            }, "B"), React.createElement("option", {
+                value: "c"
+            }, "C")), React.createElement("select", null, lookup.map(({
+                                                                                       id,
+                                                                                       text
+                                                                                   }) => {
+                return React.createElement("option", {
+                    value: id
+                }, text);
+            })));
+        }
+
+    }
+    CMS.registerWidget('categories', Hello);
+</script>
 </body>
 </html>
