@@ -14,10 +14,8 @@ site_url: https://razorthinkcms.netlify.app
 logo_url: https://www.razorthink.com/wp-content/uploads/2020/11/logo.png
 
 i18n:
-  structure: multiple_folders
+  structure: multiple_files
   locales: [en, de, fr]
-  default_locale: en
-
 collections:
   - name: "general" # Used in routes, e.g., /admin/collections/blog
     label: "General" # Used in the UI
