@@ -4,7 +4,7 @@ backend:
   repo: anand-simmy/nextjs-netlify-cms
   branch: main
   open_authoring: true
-#publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 media_folder: public/img
 public_folder: img
