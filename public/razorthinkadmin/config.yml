@@ -9,28 +9,33 @@ publish_mode: editorial_workflow
 media_folder: public/img
 public_folder: img
 
+
+site_url: https://razorthinkcms.netlify.app
+logo_url: https://www.razorthink.com/wp-content/uploads/2020/11/logo.png
+
+i18n:
+  structure: multiple_folders
+  locales: [en, de, fr]
+  default_locale: en
+
 collections:
   - name: "general" # Used in routes, e.g., /admin/collections/blog
     label: "General" # Used in the UI
     folder: "contents/general" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-
+    i18n: true
     nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: '{{title}}' # optional summary for a tree node, defaults to the inferred title field
-      # adding a meta object with a path property allows editing the path of entries
-      # moving an existing entry will move the entire sub tree of the entry to the new location
+      depth: 100
     fields:
-      - {  label: "Select Category", name: "primecat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }]}
-      - {  label: "Select Secondary Category", name: "seccat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }]}
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Author", name: "author", widget: "string", required: false }
-      - { label: "Publish Date", name: "date", widget: "datetime", required: false }
+      - {  label: "Select Category", name: "primecat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }], i18n: true}
+      - {  label: "Select Secondary Category", name: "seccat", widget: "select", options: [{ label: "Overview", value: "overview" },{ label: "Setup", value: "setup" },{ label: "Troubleshoot", value: "troubleshoot" }], i18n: true}
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Author", name: "author", widget: "string", required: false, i18n: true }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: false, i18n: duplicate }
       - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false, i18n: true }
     path: '{{primecat}}/{{seccat}}/docs/{{title}}'
-#    meta: { path: { widget: 'string', '{{primecat}}', label: 'Category', index_file: 'index' } }
 
   - name: "pipelines"
     label: "Pipelines"
@@ -56,7 +61,6 @@ collections:
     nested:
       depth: 100
       summary: '{{title}}'
-    meta: { path: { widget: "select", options: ["overview","content","working"], label: 'Path', index_file: 'index' } }
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
